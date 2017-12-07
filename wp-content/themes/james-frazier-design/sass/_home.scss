@@ -1,0 +1,91 @@
+#top #wrap_all #main {
+    #home, #thank-you {
+        .container .template-page .flex_column {
+            .av-special-heading {
+                background-color: rgba(black, 0.5);
+
+                h1 {
+                    font-weight: 100;
+                    color: white;
+                    margin: 0;
+                    padding: 20px;
+
+                    span {
+                        color: $color-blue;
+                    }
+                }
+
+                p {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    #home-cms {
+        .container .template-page .flex_column {
+            .av-special-heading {
+                h2 {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    #home-email {
+        .container .template-page .flex_column {
+            .av-special-heading {
+                h2 {
+                    color: $color-gray;
+                }
+            }
+        }
+    }
+
+    #home-cms, #home-email {
+        .home-icons {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                width: 50%;
+                padding: 2% 5%;
+
+                &:first-child {
+                    text-align: right;
+                }
+
+                &:last-child {
+                    text-align: left;
+                }
+
+                .fa {
+                    font-family: $font-awesome;
+                    font-size: 7rem;
+                    transition: all 0.3s ease-in-out;
+                    color: white;
+
+                    &:hover {
+                        transform: translate(0, -10px);
+                    }
+                }
+
+                img, svg {
+                    max-width: 250px;
+                    height: auto;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        transform: translate(0, -10px);
+                    }
+                }
+            }
+        }
+    }
+}

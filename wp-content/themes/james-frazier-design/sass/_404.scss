@@ -1,0 +1,16 @@
+// Internal pages only
+.lost.inner,
+.error.inner {
+    .container-wrap {
+        &.first {
+            background-image: url(/img/dist/bg-404.jpg);
+
+            .container {
+                h1, h2, p, small {
+                    color: black;
+                    border-color: black;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+// Internal pages only
+.contact.inner {
+    .container-wrap {
+        .container {
+            h1, h2, p, small, li {
+                color: white;
+                border-color: white;
+            }
+        }
+
+        &.first {
+            background-image: url(/img/dist/bg-contact-form.jpg);
+
+            .contact-form {
+                width: 100%;
+                max-width: 768px;
+                box-sizing: border-box;
+
+                form {
+                    width: 100%;
+                    box-sizing: border-box;
+
+                    label {
+                        display: block;
+                        width: 100%;
+                        color: white;
+                        margin: 0;
+                        box-sizing: border-box;
+                        margin-top: 20px;
+                        font-weight: $font-bold;
+
+                        .required {
+                            color: $color-blue;
+                        }
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                    }
+
+                    input, textarea {
+                        display: block;
+                        width: 100%;
+                        margin: 5px 0 0 0;
+                        padding: 10px;
+                        font-size: 1rem;
+                        box-sizing: border-box;
+                        background-color: rgba($color-blue, 0.95);
+                        border: 1px solid white;
+                        color: white;
+                    }
+
+                    input[type="submit"] {
+                        width: auto;
+                        display: inline-block;
+                        padding: 12px 30px;
+                        font-weight: $font-bold;
+                        border: none;
+                        margin-top: 40px;
+                        background-color: $color-blue;
+
+                        &:hover {
+                            color: $color-blue;
+                        }
+                    }
+
+                    #req-field-desc {
+                        font-size: 0.85rem;
+                        font-style: italic;
+
+                        .required {
+                            color: $color-blue;
+                        }
+                    }
+
+                    .error {
+                        background-color: rgba(red, 0.75);
+                        padding: 20px;
+                        margin-top: 20px;
+
+                        p, li {
+                            color: white;
+                            margin: 0;
+                        }
+
+                        ul {
+                            margin: 0;
+                        }
+
+                        p {
+                            font-weight: $font-bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.second {
+            background-image: url(/img/dist/bg-contact-paypal.jpg);
+        }
+    }
+}

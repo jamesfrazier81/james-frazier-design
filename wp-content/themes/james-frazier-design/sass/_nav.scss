@@ -1,0 +1,64 @@
+#top #wrap_all #header {
+    #header_main {
+        background-color: rgba($color-blue, 0.95);
+        position: fixed;
+
+        // bottom: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        .container {
+            .logo {
+                position: relative;
+                float: left;
+                overflow: visible;
+
+                a {
+                    width: 225px;
+                    height: 88px;
+                    background-image: url(/wp-content/themes/james-frazier-design/includes/logo-james-frazier-design.svg);
+                    background-repeat: no-repeat;
+                    background-size: 225px auto;
+                    background-position: center center;
+                }
+
+                img {
+                    display: none;
+                }
+            }
+
+            .main_menu {
+                .avia-menu {
+                    #avia-menu {
+                        li {
+                            a {
+                                font-size: 0.85rem;
+                                font-weight: 300;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $media-tablet) {
+    .responsive #top #wrap_all #header {
+        #header_main {
+            .container {
+                .logo {
+                    display: block;
+
+                    a {
+                    	width: 200px;
+                    	height: 80px;
+                    	background-size: 200px auto;
+                    }
+                }
+            }
+        }
+    }
+}

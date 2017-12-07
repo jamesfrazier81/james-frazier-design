@@ -1,0 +1,4 @@
+_resources
+.obi
+.obiignore
+/wp-content/themes/james-frazier-design/node_modules

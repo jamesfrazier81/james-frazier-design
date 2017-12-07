@@ -1,0 +1,107 @@
+.work.inner {
+    .container-wrap {
+        .container {
+            .websites, .emails {
+                max-width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+
+                a {
+                    width: 30%;
+                    height: auto;
+                    margin: 1%;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+
+        &.first {
+            background-image: url(/img/dist/bg-work-websites.jpg);
+
+            .container {
+                h1, h2, p, small, li {
+                    color: white;
+                    border-color: white;
+                }
+            }
+        }
+
+        &.second {
+            background-image: url(/img/dist/bg-work-email.jpg);
+        }
+    }
+}
+
+// Lightgallery captions
+.lg-outer {
+    .lg .lg-sub-html {
+        background-color: rgba($color-blue, 0.75);
+
+        h4 {
+            font-family: $font-sans;
+            font-size: 1.25rem;
+            font-weight: $font-bold;
+            color: white;
+            display: inline-block;
+            padding: 3px 10px;
+        }
+
+        p {
+            font-family: $font-sans;
+            font-size: 0.85rem;
+            line-height: 1rem;
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width: $media-desktop-sm) {
+    .work.inner {
+        .container-wrap {
+            .container {
+                .websites, .emails {
+                    max-width: 90%;
+
+                    a {
+                        width: 45%;
+                        margin: 2%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $media-tablet) {
+    .work.inner {
+        .container-wrap {
+            .container {
+                .websites, .emails {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $media-mobile) {
+    .work.inner {
+        .container-wrap {
+            .container {
+                .websites, .emails {
+                    flex-direction: column;
+                    width: 100%;
+
+                    a {
+                        width: 100%;
+                        margin: 5% 0;
+                    }
+                }
+            }
+        }
+    }
+}

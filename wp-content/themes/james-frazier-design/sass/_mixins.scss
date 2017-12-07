@@ -1,0 +1,29 @@
+// Image top left (clipped bottom right)
+@mixin img-top-left {
+      clip-path: polygon(0 0, 0 100%, 100% 0, 100% 0);
+}
+
+// Image top right (clipped bottom left)
+@mixin img-top-right {
+      clip-path: polygon(100% 100%, 100% 100%, 100% 0, 0 0);
+}
+
+// Image bottom right (clipped top left)
+@mixin img-bottom-right {
+      clip-path: polygon(100% 100%, 100% 0, 0 100%, 100% 100%);
+}
+
+// Image bottom left (clipped top right)
+@mixin img-bottom-left {
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 0);
+}
+
+// Image bow tie
+@mixin img-bow-tie {
+      clip-path: polygon(0 0, 0 100%, 100% 0, 100% 100%);
+}
+
+// Image triangle
+@mixin img-triangle {
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
