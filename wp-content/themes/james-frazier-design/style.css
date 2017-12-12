@@ -157,13 +157,15 @@ html, body {
     padding: 88px 0 0 0 !important; }
 
 @media screen and (max-width: 767px) {
-  .responsive #top #wrap_all #header #header_main .container .logo {
-    display: block; }
-    .responsive #top #wrap_all #header #header_main .container .logo a {
-      width: 200px;
-      height: 80px;
-      -moz-background-size: 200px auto;
-      background-size: 200px auto; } }
+  .responsive #top #wrap_all #header #header_main {
+    position: static; }
+    .responsive #top #wrap_all #header #header_main .container .logo {
+      display: block; }
+      .responsive #top #wrap_all #header #header_main .container .logo a {
+        width: 200px;
+        height: 80px;
+        -moz-background-size: 200px auto;
+        background-size: 200px auto; } }
 
 #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading {
   background-color: rgba(0, 0, 0, 0.5); }
