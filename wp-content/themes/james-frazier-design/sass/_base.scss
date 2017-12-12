@@ -153,6 +153,10 @@ html, body {
 
 @media screen and (max-width: $media-mobile) {
     html, body {
-        font-size: 16px;
+        font-size: 14px;
+
+        h1, h2 {
+            font-size: 2rem;
+        }
     }
 }

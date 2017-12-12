@@ -92,30 +92,6 @@ function avia_year_func( $atts ){
 }
 add_shortcode( 'cur_year', 'avia_year_func' );
 
-// Remove image titles
-function remove_title_attr(){
-?>
- <script>
-	jQuery(window).load(function(){
-		jQuery('#wrap_all a').removeAttr('title');
-		jQuery('#wrap_all img').removeAttr('title');
-	});
- </script>
-<?php
-}
-add_action('wp_footer', 'remove_title_attr');
-
-// Add Advance Layout Builder to CPTs
-// add_filter('avf_builder_boxes', 'avia_register_meta_boxes', 10, 1);
-// function avia_register_meta_boxes($boxes) {
-// 	if(!empty($boxes)) {
-// 		foreach($boxes as $key => $box) {
-// 			$boxes[$key]['page'][] = 'your-cpt-name-here';
-// 		}
-// 	}
-// 	return $boxes;
-// }
-
 // Menu shortcode
 function print_menu_shortcode($atts, $content = null) {
     extract(shortcode_atts(array( 'name' => null, ), $atts));

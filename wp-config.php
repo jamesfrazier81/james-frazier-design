@@ -47,16 +47,16 @@ if ( WP_ENV == 'local' ) {
 } elseif ( WP_ENV == 'staging') {
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
-	define('DB_NAME', 'jfdadminstag'); // staging_db_name
+	define('DB_NAME', 'jfdwpstaging'); // staging_db_name
 
 	/** MySQL database username */
-	define('DB_USER', 'jfdadminstag'); // staging_db_user
+	define('DB_USER', 'jfdwpstaging'); // staging_db_user
 
 	/** MySQL database password */
 	define('DB_PASSWORD', 'cGtv!u%N@7fZyg6HF'); // staging_db_password
 
 	/** MySQL hostname */
-	define('DB_HOST', 'jfdadminstag.db.4323042.hostedresource.com'); // staging_db_host
+	define('DB_HOST', '45.40.164.84'); // staging_db_host - Get this by logging into phpMyAdmin
 
 	define('WP_SITEURL', "http://staging.jamesfrazierdesign.com"); // staging_site_url
 
@@ -65,16 +65,16 @@ if ( WP_ENV == 'local' ) {
 } else {
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
-	define('DB_NAME', 'jfdadminprod'); // production_db_name
+	define('DB_NAME', 'jfdwpproduction'); // production_db_name
 
 	/** MySQL database username */
-	define('DB_USER', 'jfdadminprod'); // production_db_user
+	define('DB_USER', 'jfdwpproduction'); // production_db_user
 
 	/** MySQL database password */
 	define('DB_PASSWORD', 'J89UbmbeVc@rQ8hM!'); // production_db_password
 
 	/** MySQL hostname */
-	define('DB_HOST', 'jfdadminprod.db.4323042.hostedresource.com'); // production_db_host
+	define('DB_HOST', '45.40.164.102'); // production_db_host - Get this by logging into phpMyAdmin
 
 	define('WP_SITEURL', "http://jamesfrazierdesign.com"); // production_site_url
 

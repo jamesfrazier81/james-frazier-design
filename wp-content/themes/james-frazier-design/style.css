@@ -111,7 +111,9 @@ html, body {
 
 @media screen and (max-width: 480px) {
   html, body {
-    font-size: 16px; } }
+    font-size: 14px; }
+    html h1, html h2, body h1, body h2 {
+      font-size: 2rem; } }
 
 #top #wrap_all #main #james-frazier-wrap {
   position: fixed;
@@ -153,19 +155,52 @@ html, body {
         width: 100%;
         height: 100%; } }
 
-#top #wrap_all #main #socket .container .social_bookmarks li a {
-  font-size: 1rem; }
+#top #wrap_all #header #header_main {
+  background-color: rgba(0, 127, 190, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+  #top #wrap_all #header #header_main .container .logo {
+    position: relative;
+    float: left;
+    overflow: visible; }
+    #top #wrap_all #header #header_main .container .logo a {
+      width: 225px;
+      height: 88px;
+      background-image: url(/wp-content/themes/james-frazier-design/includes/logo-james-frazier-design.svg);
+      background-repeat: no-repeat;
+      -moz-background-size: 225px auto;
+      background-size: 225px auto;
+      background-position: center center; }
+    #top #wrap_all #header #header_main .container .logo img {
+      display: none; }
+  #top #wrap_all #header #header_main .container .main_menu .avia-menu #avia-menu li a {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: white; }
+  #top #wrap_all #header #header_main .container .main_menu .avia-menu .av-burger-overlay #av-burger-menu-ul {
+    padding: 88px 0 0 0 !important; }
 
-#top #wrap_all #main #home .container .template-page .flex_column .av-special-heading, #top #wrap_all #main #thank-you .container .template-page .flex_column .av-special-heading {
+@media screen and (max-width: 767px) {
+  .responsive #top #wrap_all #header #header_main .container .logo {
+    display: block; }
+    .responsive #top #wrap_all #header #header_main .container .logo a {
+      width: 200px;
+      height: 80px;
+      -moz-background-size: 200px auto;
+      background-size: 200px auto; } }
+
+#top #wrap_all #main #home .container .template-page .flex_column .av-special-heading {
   background-color: rgba(0, 0, 0, 0.5); }
-  #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading h1, #top #wrap_all #main #thank-you .container .template-page .flex_column .av-special-heading h1 {
+  #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading h1 {
     font-weight: 100;
     color: white;
     margin: 0;
     padding: 20px; }
-    #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading h1 span, #top #wrap_all #main #thank-you .container .template-page .flex_column .av-special-heading h1 span {
+    #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading h1 span {
       color: #007fbe; }
-  #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading p, #top #wrap_all #main #thank-you .container .template-page .flex_column .av-special-heading p {
+  #top #wrap_all #main #home .container .template-page .flex_column .av-special-heading p {
     color: white; }
 
 #top #wrap_all #main #home-cms .container .template-page .flex_column .av-special-heading h2 {
@@ -222,219 +257,48 @@ html, body {
         -moz-transform: translate(0, -10px);
         transform: translate(0, -10px); }
 
-.services.inner .container-wrap .container h1, .services.inner .container-wrap .container h2, .services.inner .container-wrap .container p, .services.inner .container-wrap .container small, .services.inner .container-wrap .container li {
-  color: white;
-  border-color: white; }
-
-.services.inner .container-wrap.first {
-  background-image: url(/img/dist/bg-services-websites.jpg); }
-
-.services.inner .container-wrap.second {
-  background-image: url(/img/dist/bg-services-wordpress.jpg); }
-
-.services.inner .container-wrap.third {
-  background-image: url(/img/dist/bg-services-html5.jpg); }
-
-.services.inner .container-wrap.fourth {
-  background-image: url(/img/dist/bg-services-mailchimp.jpg); }
-  .services.inner .container-wrap.fourth .container h1, .services.inner .container-wrap.fourth .container h2, .services.inner .container-wrap.fourth .container p, .services.inner .container-wrap.fourth .container small, .services.inner .container-wrap.fourth .container li {
-    color: black;
-    border-color: black; }
-
-.services.inner .container-wrap.fifth {
-  background-image: url(/img/dist/bg-services-campaign-monitor.jpg); }
-  .services.inner .container-wrap.fifth .container h1, .services.inner .container-wrap.fifth .container h2, .services.inner .container-wrap.fifth .container p, .services.inner .container-wrap.fifth .container small, .services.inner .container-wrap.fifth .container li {
-    color: black;
-    border-color: black; }
-
-.work.inner .container-wrap .container .websites, .work.inner .container-wrap .container .emails {
-  max-width: 80%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  .work.inner .container-wrap .container .websites a, .work.inner .container-wrap .container .emails a {
-    width: 30%;
-    height: auto;
-    margin: 1%; }
-    .work.inner .container-wrap .container .websites a img, .work.inner .container-wrap .container .emails a img {
-      width: 100%;
-      height: auto; }
-
-.work.inner .container-wrap.first {
-  background-image: url(/img/dist/bg-work-websites.jpg); }
-  .work.inner .container-wrap.first .container h1, .work.inner .container-wrap.first .container h2, .work.inner .container-wrap.first .container p, .work.inner .container-wrap.first .container small, .work.inner .container-wrap.first .container li {
-    color: white;
-    border-color: white; }
-
-.work.inner .container-wrap.second {
-  background-image: url(/img/dist/bg-work-email.jpg); }
-
-.lg-outer .lg .lg-sub-html {
-  background-color: rgba(0, 127, 190, 0.75); }
-  .lg-outer .lg .lg-sub-html h4 {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    display: inline-block;
-    padding: 3px 10px; }
-  .lg-outer .lg .lg-sub-html p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.85rem;
-    line-height: 1rem;
-    color: white; }
-
-@media screen and (max-width: 1024px) {
-  .work.inner .container-wrap .container .websites, .work.inner .container-wrap .container .emails {
-    max-width: 90%; }
-    .work.inner .container-wrap .container .websites a, .work.inner .container-wrap .container .emails a {
-      width: 45%;
-      margin: 2%; } }
-
-@media screen and (max-width: 767px) {
-  .work.inner .container-wrap .container .websites, .work.inner .container-wrap .container .emails {
-    max-width: 100%; } }
-
 @media screen and (max-width: 480px) {
-  .work.inner .container-wrap .container .websites, .work.inner .container-wrap .container .emails {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -moz-box-orient: vertical;
-    -moz-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%; }
-    .work.inner .container-wrap .container .websites a, .work.inner .container-wrap .container .emails a {
-      width: 100%;
-      margin: 5% 0; } }
+  .responsive #top #wrap_all #main #home .av-parallax {
+    background-position: 46% 180px !important; } }
 
-.contact.inner .container-wrap .container h1, .contact.inner .container-wrap .container h2, .contact.inner .container-wrap .container p, .contact.inner .container-wrap .container small, .contact.inner .container-wrap .container li {
+#top #wrap_all #main .av_textblock_section .avia_textblock .wpcf7 .wpcf7-form p label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem; }
+  #top #wrap_all #main .av_textblock_section .avia_textblock .wpcf7 .wpcf7-form p label .required {
+    color: red; }
+
+#top #wrap_all #main .av_textblock_section .avia_textblock .wpcf7 .wpcf7-form p input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #007fbe; }
+
+#top #wrap_all #main .av_textblock_section .avia_textblock .wpcf7 .wpcf7-form p input[type="submit"] {
+  background-color: #007fbe;
   color: white;
-  border-color: white; }
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-transform: skew(-5deg, 0);
+  -moz-transform: skew(-5deg, 0);
+  transform: skew(-5deg, 0);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  #top #wrap_all #main .av_textblock_section .avia_textblock .wpcf7 .wpcf7-form p input[type="submit"]:hover {
+    -webkit-transform: skew(5deg, 0);
+    -moz-transform: skew(5deg, 0);
+    transform: skew(5deg, 0);
+    -webkit-box-shadow: inset 0 0 0 25px white;
+    -moz-box-shadow: inset 0 0 0 25px white;
+    box-shadow: inset 0 0 0 25px white;
+    background-color: white;
+    color: #007fbe; }
 
-.contact.inner .container-wrap.first {
-  background-image: url(/img/dist/bg-contact-form.jpg); }
-  .contact.inner .container-wrap.first .contact-form {
-    width: 100%;
-    max-width: 768px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    .contact.inner .container-wrap.first .contact-form form {
-      width: 100%;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box; }
-      .contact.inner .container-wrap.first .contact-form form label {
-        display: block;
-        width: 100%;
-        color: white;
-        margin: 0;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        margin-top: 20px;
-        font-weight: 700; }
-        .contact.inner .container-wrap.first .contact-form form label .required {
-          color: #007fbe; }
-        .contact.inner .container-wrap.first .contact-form form label:first-child {
-          margin-top: 0; }
-      .contact.inner .container-wrap.first .contact-form form input, .contact.inner .container-wrap.first .contact-form form textarea {
-        display: block;
-        width: 100%;
-        margin: 5px 0 0 0;
-        padding: 10px;
-        font-size: 1rem;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        background-color: rgba(0, 127, 190, 0.95);
-        border: 1px solid white;
-        color: white; }
-      .contact.inner .container-wrap.first .contact-form form input[type="submit"] {
-        width: auto;
-        display: inline-block;
-        padding: 12px 30px;
-        font-weight: 700;
-        border: none;
-        margin-top: 40px;
-        background-color: #007fbe; }
-        .contact.inner .container-wrap.first .contact-form form input[type="submit"]:hover {
-          color: #007fbe; }
-      .contact.inner .container-wrap.first .contact-form form #req-field-desc {
-        font-size: 0.85rem;
-        font-style: italic; }
-        .contact.inner .container-wrap.first .contact-form form #req-field-desc .required {
-          color: #007fbe; }
-      .contact.inner .container-wrap.first .contact-form form .error {
-        background-color: rgba(255, 0, 0, 0.75);
-        padding: 20px;
-        margin-top: 20px; }
-        .contact.inner .container-wrap.first .contact-form form .error p, .contact.inner .container-wrap.first .contact-form form .error li {
-          color: white;
-          margin: 0; }
-        .contact.inner .container-wrap.first .contact-form form .error ul {
-          margin: 0; }
-        .contact.inner .container-wrap.first .contact-form form .error p {
-          font-weight: 700; }
-
-.contact.inner .container-wrap.second {
-  background-image: url(/img/dist/bg-contact-paypal.jpg); }
-
-.thanks.inner .container-wrap .container h1, .thanks.inner .container-wrap .container h2, .thanks.inner .container-wrap .container p, .thanks.inner .container-wrap .container small, .thanks.inner .container-wrap .container li {
-  color: white;
-  border-color: white; }
-
-.thanks.inner .container-wrap .container h1 {
-  margin: 0; }
-
-.thanks.inner .container-wrap.first {
-  background-image: url(/img/dist/bg-contact-thanks.jpg); }
-
-#top #wrap_all #header #header_main {
-  background-color: rgba(0, 127, 190, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; }
-  #top #wrap_all #header #header_main .container .logo {
-    position: relative;
-    float: left;
-    overflow: visible; }
-    #top #wrap_all #header #header_main .container .logo a {
-      width: 225px;
-      height: 88px;
-      background-image: url(/wp-content/themes/james-frazier-design/includes/logo-james-frazier-design.svg);
-      background-repeat: no-repeat;
-      -moz-background-size: 225px auto;
-      background-size: 225px auto;
-      background-position: center center; }
-    #top #wrap_all #header #header_main .container .logo img {
-      display: none; }
-  #top #wrap_all #header #header_main .container .main_menu .avia-menu #avia-menu li a {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: white; }
-
-@media screen and (max-width: 767px) {
-  .responsive #top #wrap_all #header #header_main .container .logo {
-    display: block; }
-    .responsive #top #wrap_all #header #header_main .container .logo a {
-      width: 200px;
-      height: 80px;
-      -moz-background-size: 200px auto;
-      background-size: 200px auto; } }
-
-.lost.inner .container-wrap.first,
-.error.inner .container-wrap.first {
-  background-image: url(/img/dist/bg-404.jpg); }
-  .lost.inner .container-wrap.first .container h1, .lost.inner .container-wrap.first .container h2, .lost.inner .container-wrap.first .container p, .lost.inner .container-wrap.first .container small,
-  .error.inner .container-wrap.first .container h1,
-  .error.inner .container-wrap.first .container h2,
-  .error.inner .container-wrap.first .container p,
-  .error.inner .container-wrap.first .container small {
-    color: black;
-    border-color: black; }
+#top #wrap_all #main #socket .container .social_bookmarks li a {
+  font-size: 1rem; }

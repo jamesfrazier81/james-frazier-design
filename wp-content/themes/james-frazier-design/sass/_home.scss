@@ -1,5 +1,5 @@
 #top #wrap_all #main {
-    #home, #thank-you {
+    #home {
         .container .template-page .flex_column {
             .av-special-heading {
                 background-color: rgba(black, 0.5);
@@ -85,6 +85,16 @@
                         transform: translate(0, -10px);
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $media-mobile) {
+    .responsive #top #wrap_all #main {
+        #home {
+            .av-parallax {
+                background-position: 46% 180px !important;
             }
         }
     }
