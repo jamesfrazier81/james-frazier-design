@@ -16,8 +16,7 @@
 
 // One wp-config.php file for multiple environments setup from http://www.messaliberty.com/2010/01/how-to-create-a-single-wp-config-file-for-local-and-remote-wordpress-development/
 if (
-		preg_match('/^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-2]))/', $_SERVER['REMOTE_ADDR']) || // Request IP is in a private block
-		preg_match('/^([a-z-_0-9]+\.)*[a-z-_0-9]+\.dev(?!\.)/', $_SERVER['SERVER_NAME']) // Request Domain follows the pattern [xxx.]xxx.dev
+		preg_match('/^([a-z-_0-9]+\.)*[a-z-_0-9]+\.local(?!\.)/', $_SERVER['SERVER_NAME']) // Request Domain follows the pattern [xxx.]xxx.dev
 	) {
 	define('WP_ENV', 'local');
 } elseif (preg_match('/staging.jamesfrazierdesign\.com/', $_SERVER['HTTP_HOST'])) { // staging_server_domain
@@ -40,9 +39,9 @@ if ( WP_ENV == 'local' ) {
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost'); // local_db_host
 
-	define('WP_SITEURL', "http://jamesfrazierdesign.dev"); // local_site_url
+	define('WP_SITEURL', "http://jamesfrazierdesign.local"); // local_site_url
 
-	define('WP_HOME', "http://jamesfrazierdesign.dev"); // local_home_url
+	define('WP_HOME', "http://jamesfrazierdesign.local"); // local_home_url
 
 } elseif ( WP_ENV == 'staging') {
 	// ** MySQL settings - You can get this info from your web host ** //
@@ -97,14 +96,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'j(dy/r,HmIY$8$Tbm;|TN&(`^4/l(XPktpFX$Z7z[l$&,?!#e;j}Ta*+1b%w=7GR');
-define('SECURE_AUTH_KEY',  '2W_ZVSxsR~h>MlRd+zU+K6A?XL;[cFAd7]$dk|Pg(%vf*$m41B[HH&)J{Z_r[t+o');
-define('LOGGED_IN_KEY',    'nUJYmCL|qS@5|F}|F8|u`!2>/$])~yWy{+NhNCI1#&}D0cf:t+Yxmo-jsxRL=$lG');
-define('NONCE_KEY',        'Cg5nBa>FIH2dZ@wAp2A7-gS>Y4^iblVf:UMIaVbh|SK8;B$!).]6njx/H-2Xyb6B');
-define('AUTH_SALT',        'Fac&L.=wC`cZt>yc4|}L[ x6VEd|A).Ke|w5^mo{ZB/?sOl8VM^FZA~N{9*&fq:-');
-define('SECURE_AUTH_SALT', 'Mb[@]<N+uNy/9.9pv-+Gwq.kVOt,:89=qoBabX<b,!fJUMP6:KRC_t==.>(=jw{N');
-define('LOGGED_IN_SALT',   'Lv1diy6h$j]I+rd-1EqTzA@xicWUPmc!gcV}~)8ZgQDh.^!oH=|;I?--_bMp[^tj');
-define('NONCE_SALT',       '7NK %rJRn(w/|Hi-?~-]-2>o>(~3Kk|0F,@Zs3oTD--)u!HK=3h+/+3C+9^UgE|X');
+define('AUTH_KEY',         'y{$/qIZb,tV+4[+qhpQp94Rm~Kd b&CYEMh^-+}L.6<qGeX,j{L6%M(b68 t`A8W');
+define('SECURE_AUTH_KEY',  'o1.!^FJ B^:R7}*k:89i?h^Z)_Nz/BvCjhF~,*S1)(aSS$t2VVh|EEF#|6)+*hi&');
+define('LOGGED_IN_KEY',    '?+_mLrY0J(Kv}PiG>,0`8bh#A+4}K9CNRt:z+mW*F>iuNaIcbL/0+,-q)7gcK`F8');
+define('NONCE_KEY',        '|`V|IVm#+Xp-1c!+N)kWlY@Al=F6}+sUF,Q0p{F6ln7Q@d/W&L/QbWKM`-q|1z- ');
+define('AUTH_SALT',        'L]Ql5=|$W/qy7TZa4)R^.:?-a=0W i%N!h6U+XemuUe7`}*(a7W#mc|sB1qG6_0~');
+define('SECURE_AUTH_SALT', 'Yb);.rEGeC$w[~Odad*:?8#Sl0<.}BJCXEp>9mfydM$g=ZK&&~-]VDJf/|.*VNJU');
+define('LOGGED_IN_SALT',   'p:qr+SbSR+yuLGK2LKB8.VenGa.[EJV+(amU|<e;Is$`HTC#f}^D8C&|c({v9rbF');
+define('NONCE_SALT',       'LJ7mM6Zw9>B)q&HG ^|viq?-xFI+.n)PKo2@/cL9y-C[BQcb5-t&Xfp:; ;1xw4g');
 
 /**#@-*/
 
