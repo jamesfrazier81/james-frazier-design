@@ -54,6 +54,8 @@
 @media screen and (max-width: $media-tablet) {
     .responsive #top #wrap_all #header {
         #header_main {
+            position: static;
+            
             .container {
                 .logo {
                     display: block;

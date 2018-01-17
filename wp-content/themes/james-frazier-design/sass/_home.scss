@@ -90,11 +90,28 @@
     }
 }
 
-@media screen and (max-width: $media-mobile) {
-    .responsive #top #wrap_all #main {
+@media screen and (max-width: $media-tablet) {
+    #top #wrap_all #main {
         #home {
             .av-parallax {
                 background-position: 46% 180px !important;
+            }
+        }
+
+        #home-cms, #home-email {
+            .home-icons {
+                flex-direction: column;
+
+                li {
+                    width: 100%;
+                    margin: 0;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
             }
         }
     }

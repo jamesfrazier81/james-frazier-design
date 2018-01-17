@@ -26,7 +26,7 @@ gulp.task('serve', function() {
 	]
 
 	browserSync.init(files, {
-		proxy: 'http://jamesfrazierdesign.dev'
+		proxy: 'http://jamesfrazierdesign.local'
 	});
 
 	gulp.watch('./sass/*.scss', ['sass']);

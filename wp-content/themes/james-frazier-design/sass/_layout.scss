@@ -1,38 +1,38 @@
 #top #wrap_all #main {
     // padding: 0 0 88px 0;
-    #james-frazier-wrap {
-        position: fixed;
-        bottom: 85px;
-        right: 45px;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        border: 2px solid $color-blue;
-        text-align: center;
-        display: inline-block;
-        margin: 0 auto;
-        overflow: hidden;
+    // #james-frazier-wrap {
+    //     position: fixed;
+    //     bottom: 85px;
+    //     right: 45px;
+    //     width: 250px;
+    //     height: 250px;
+    //     border-radius: 50%;
+    //     border: 2px solid $color-blue;
+    //     text-align: center;
+    //     display: inline-block;
+    //     margin: 0 auto;
+    //     overflow: hidden;
 
-        .container {
-            padding: 0;
-            margin: 0;
+    //     .container {
+    //         padding: 0;
+    //         margin: 0;
 
-            .template-page {
-                padding: 0;
-                margin: 0;
+    //         .template-page {
+    //             padding: 0;
+    //             margin: 0;
 
-                .avia-image-container {
-                    .avia_image {
-                        width: 100%;
-                        height: 100%;
-                        text-align: center;
-                        display: inline-block;
-                        margin: 0 auto;
-                    }
-                }
-            }
-        }
-    }
+    //             .avia-image-container {
+    //                 .avia_image {
+    //                     width: 100%;
+    //                     height: 100%;
+    //                     text-align: center;
+    //                     display: inline-block;
+    //                     margin: 0 auto;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 @media screen and (max-width: $media-tablet) {
