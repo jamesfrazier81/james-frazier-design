@@ -1,9 +1,12 @@
 <?php
 /**
- * Post/Page Content
+ * Post Slider
  *
+ * Display a Slideshow of Post Entries
  * Element is in Beta and by default disabled. Todo: test with layerslider elements. currently throws error bc layerslider is only included if layerslider element is detected which is not the case with the post/page element
  */
+if ( ! defined( 'ABSPATH' ) ) {  exit;  }    // Exit if accessed directly
+
 
 if ( !class_exists( 'avia_sc_postslider' ))
 {
@@ -15,6 +18,8 @@ if ( !class_exists( 'avia_sc_postslider' ))
 		 */
 		function shortcode_insert_button()
 		{
+			$this->config['self_closing']	=	'yes';
+			
 			$this->config['name']		= __('Post Slider', 'avia_framework' );
 			$this->config['tab']		= __('Content Elements', 'avia_framework' );
 			$this->config['icon']		= AviaBuilder::$path['imagesURL']."sc-postslider.png";
@@ -748,7 +753,7 @@ if ( !class_exists( 'avia_post_slider' ) )
 				// check if taxonomy are set to product or product attributes
 				$tax = get_taxonomy( $params['taxonomy'] );
 				
-				if( is_object( $tax ) && isset( $tax->object_type ) && in_array( 'product', (array) $tax->object_type ) )
+				if( class_exists( 'WooCommerce' ) && is_object( $tax ) && isset( $tax->object_type ) && in_array( 'product', (array) $tax->object_type ) )
 				{
 					$avia_config['woocommerce']['disable_sorting_options'] = true;
 					

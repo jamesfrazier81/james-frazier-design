@@ -28,8 +28,17 @@ $avia_config['posts_on_current_page'] = array();
  * wpml multi site config file
  * needs to be loaded before the framework
  */
-
 require_once( 'config-wpml/config.php' );
+
+/**
+ * layerslider plugin - needs to be loaded before framework because we need to add data to the options array
+ * 
+ * To be backwards compatible we still support  add_theme_support('deactivate_layerslider'); 
+ * This will override the option setting "activation" of the bundled plugin !!
+ * 
+ * @since 4.2.1
+ */
+require_once( 'config-layerslider/config.php' );
 
 
 /*
@@ -298,6 +307,8 @@ if(!function_exists('avia_register_frontend_scripts'))
 
 	function avia_register_frontend_scripts()
 	{
+		global $avia_config;
+		
 		$theme = wp_get_theme();
 		if( false !== $theme->parent() )
 		{
@@ -314,14 +325,22 @@ if(!function_exists('avia_register_frontend_scripts'))
 		wp_enqueue_script( 'avia-compat', $template_url.'/js/avia-compat.js', array('jquery'), $vn, false ); //needs to be loaded at the top to prevent bugs
 		wp_enqueue_script( 'avia-default', $template_url.'/js/avia.js', array('jquery'), $vn, true );
 		wp_enqueue_script( 'avia-shortcodes', $template_url.'/js/shortcodes.js', array('jquery'), $vn, true );
-		
-		if( empty( $options['lightbox_active'] ) || ( 'lightbox_active' == $options['lightbox_active'] ) )
+			
+		if( 'disabled' != $avia_config['use_standard_lightbox'] )
 		{
 			wp_enqueue_script( 'avia-popup',  $template_url.'/js/aviapopup/jquery.magnific-popup.min.js', array('jquery'), $vn, true);
 		}
 
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'wp-mediaelement' );
+		
+		/**
+		 * With WP 4.9 we need to load the stylesheet seperately
+		 */
+		if( version_compare( get_bloginfo( 'version' ), '4.9', '>=' ) )
+		{
+			wp_enqueue_style( 'wp-mediaelement' );
+		}
 
 
 		if ( is_singular() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
@@ -332,13 +351,13 @@ if(!function_exists('avia_register_frontend_scripts'))
 		wp_register_style( 'avia-custom',  $template_url."/css/custom.css", array(), 	$vn, 'all' );
 																						 
 		wp_enqueue_style( 'avia-grid' ,   $template_url."/css/grid.css", array(), 		$vn, 'all' );
-		wp_enqueue_style( 'avia-base' ,   $template_url."/css/base.css", array(), 		$vn, 'all' );
-		wp_enqueue_style( 'avia-layout',  $template_url."/css/layout.css", array(), 	$vn, 'all' );
-		wp_enqueue_style( 'avia-scs',     $template_url."/css/shortcodes.css", array(), $vn, 'all' );
+		wp_enqueue_style( 'avia-base' ,   $template_url."/css/base.css", array('avia-grid'), 		$vn, 'all' );
+		wp_enqueue_style( 'avia-layout',  $template_url."/css/layout.css", array('avia-base'), 	$vn, 'all' );
+		wp_enqueue_style( 'avia-scs',     $template_url."/css/shortcodes.css", array('avia-layout'), $vn, 'all' );
 		
-		if( empty( $options['lightbox_active'] ) || ( 'lightbox_active' == $options['lightbox_active'] ) )
+		if( 'disabled' != $avia_config['use_standard_lightbox'] )
 		{
-			wp_enqueue_style( 'avia-popup-css', $template_url."/js/aviapopup/magnific-popup.css", array(), $vn, 'screen' );
+			wp_enqueue_style( 'avia-popup-css', $template_url."/js/aviapopup/magnific-popup.css", array('avia-layout'), $vn, 'screen' );
 		}
 		
 		wp_enqueue_style( 'avia-print' ,  $template_url."/css/print.css", array(), $vn, 'print' );
@@ -385,8 +404,16 @@ if(!function_exists('avia_remove_default_video_styling'))
 
 	function avia_remove_default_video_styling()
 	{
-		//remove default style for videos
-		wp_dequeue_style( 'mediaelement' );
+		/**
+		 * remove default style for videos
+		 * 
+		 * With WP 4.9 we need to load the stylesheet seperately - therefore we must not remove it
+		 */
+		if( version_compare( get_bloginfo( 'version' ), '4.9', '<' ) )
+		{
+			wp_dequeue_style( 'mediaelement' );
+		}
+		
 		// wp_dequeue_script( 'wp-mediaelement' );
 		// wp_dequeue_style( 'wp-mediaelement' );
 	}
@@ -458,8 +485,6 @@ require_once( 'includes/helper-responsive-megamenu.php' ); 		// holds the walker
 
 
 //adds the plugin initalization scripts that add styles and functions
-
-if(!current_theme_supports('deactivate_layerslider')) require_once( 'config-layerslider/config.php' );//layerslider plugin
 
 require_once( 'config-bbpress/config.php' );					//compatibility with  bbpress forum plugin
 require_once( 'config-templatebuilder/config.php' );			//templatebuilder plugin
@@ -549,6 +574,8 @@ add_theme_support('force-post-thumbnails-in-widget');
 
 /*
  * display page titles via wordpress default output
+ * 
+ * @since 3.6
  */
 function av_theme_slug_setup() 
 {
@@ -557,7 +584,7 @@ function av_theme_slug_setup()
 
 add_action( 'after_setup_theme', 'av_theme_slug_setup' );
 
-/*title fallback*/
+/*title fallback (up to WP 4.1)*/
 if ( ! function_exists( '_wp_render_title_tag' ) )
 {
     function av_theme_slug_render_title() 

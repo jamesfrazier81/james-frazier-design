@@ -25,10 +25,14 @@ width:100%;
 display: block !important;
 }
 
+#avia_sc_parser{
+float:left;
+width:100%;
+}
+
 #avia_builder.avia-hidden{
 display: none !important;
 }
-
 
 #aviaLayoutBuilder.preloading{
 background: #fff url(../../images/loading.gif) center center no-repeat;
@@ -84,6 +88,49 @@ background-color: #2EA2CC;
 .av-builder-note a{color:#fff; text-decoration: underline; }
 .av-builder-note.av-only-active{ display:none; }
 .avia-advanced-editor-enabled .av-builder-note.av-only-active{ display:block; }
+
+
+#poststuff .avia-builder-parser-section{
+	width: 100%;
+	display: inline-block;
+	margin: 10px 0;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-label{
+	padding: 15px;
+	width: auto;
+	font-weight: bold;
+	float: left;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-select{
+	padding: 15px;
+	width: 50%;
+	float: left;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-info-button{
+	margin: 15px 0;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-message{
+	width: 100%;
+	float: left;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-message .avia-parser-valid{
+	color: #008c00;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-message .avia-parser-invalid{
+	color: #ea002b;
+	font-weight: 600;
+}
+
+#poststuff .avia-builder-parser-section .avia-builder-parser-message .avia-parser-undefined{
+	color: #0330f5;
+}
+
 
 
 .av-no-drag-drop .avia-expand-button,
@@ -2513,7 +2560,12 @@ span.av-tab-title-text-wrap-full {
 }
 
 
-
+/*	Product Info Tab		*/
+.avia_inner_shortcode .avia-flex-element.product-info-tabs ul{
+	list-style: disc; 
+	text-align: left;
+	padding: 0 0 0 10px;
+}
 
 
 

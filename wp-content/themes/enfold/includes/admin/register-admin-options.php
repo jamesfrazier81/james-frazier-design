@@ -31,6 +31,18 @@ if(!current_theme_supports('avia_disable_import_export')){
 }
 
 
+/**
+ * Allow to include a user defined file to add or alter backend styles
+ * 
+ * @since 4.2.1
+ * @return string		full path to the include file ( not a relative path !!! )
+ */
+$custom_path = apply_filters( 'avf_register_custom_backend_styles', '' );
+if( ! empty( $custom_path ) && file_exists( $custom_path ) )
+{
+	include_once $custom_path;
+}
+
 
 
 
@@ -96,6 +108,7 @@ $avia_elements[] = array(
 $avia_elements[] = array(	"slug"	=> "builder", "type" => "visual_group_end", "id" => "avia_lock_alb_close", "nodescription" => true);		
 
 
+$avia_elements[] = array(	"slug"	=> "builder", "type" => "visual_group_start", "id" => "avia_markup", "nodescription" => true);
 
 $avia_elements[] =	array(
 					"slug"	=> "builder",
@@ -110,12 +123,7 @@ $avia_elements[] =	array(
 										));
 	
 
-
-
-
-
-
-
+$avia_elements[] = array(	"slug"	=> "builder", "type" => "visual_group_end", "id" => "avia_markup_close", "nodescription" => true);
 
 
 
@@ -1395,7 +1403,7 @@ foreach($colorsets as $set_key => $set_value)
 						"id" 	=> "colorset-$set_key-color",
 						"type" 	=> "colorpicker",
 						"class" => "av_2columns av_col_1",
-						"std" 	=> "#719430",
+						"std" 	=> "#000000",
 						"target" => array("default_slideshow_target::.live-$set_key::color"),
 						);
 
@@ -1405,7 +1413,7 @@ foreach($colorsets as $set_key => $set_value)
 						"id" 	=> "colorset-$set_key-meta",
 						"type" 	=> "colorpicker",
 						"class" => "av_2columns av_col_2",
-						"std" 	=> "#719430",
+						"std" 	=> "#969696",
 						"target" => array("default_slideshow_target::.live-$set_key .meta::color"),
 						);
 	
@@ -1415,7 +1423,7 @@ foreach($colorsets as $set_key => $set_value)
 						"id" 	=> "colorset-$set_key-heading",
 						"type" 	=> "colorpicker",
 						"class" => "av_2columns av_col_1",
-						"std" 	=> "#666666",
+						"std" 	=> "#000000",
 						"target" => array("default_slideshow_target::.live-$set_key .heading::color"),
 						);
 
@@ -1426,7 +1434,7 @@ foreach($colorsets as $set_key => $set_value)
 					"id" 	=> "colorset-$set_key-border",
 					"type" 	=> "colorpicker",
 					"class" => "av_2columns av_col_2",
-					"std" 	=> "#e1e1e1",
+					"std" 	=> "#ebebeb",
 					"target" => array("default_slideshow_target::.live-$set_key.border, .live-$set_key .bg2::border-color"),
 					);
 
@@ -1677,7 +1685,7 @@ $avia_elements[] =	array(	"name" 	=> __("Defines the Font for your body text", '
 				            "class" => "av_2columns av_col_2",
 				            "onchange" => "avia_add_google_font",
 				            "std" 	=> "Helvetica-Neue,Helvetica-websave",
-				            "subtype" => apply_filters('avf_google_content_font', array( __('Web save fonts', 'avia_framework') => array(
+				            "subtype" => apply_filters('avf_google_content_font', array( __('Web safe fonts', 'avia_framework') => array(
 				            					'Arial'=>'Arial-websave',
 				            					'Georgia'=>'Georgia-websave',
 				            					'Verdana'=>'Verdana-websave',

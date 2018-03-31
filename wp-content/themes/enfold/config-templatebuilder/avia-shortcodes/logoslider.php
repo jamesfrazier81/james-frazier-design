@@ -1,8 +1,11 @@
 <?php
 /**
- * Slider
- * Shortcode that allows to display a simple partner logo element
+ * Partner/Logo Element
+ * 
+ * Shortcode that allows to display a simple partner logo grid or slider
  */
+if ( ! defined( 'ABSPATH' ) ) {  exit;  }    // Exit if accessed directly
+
 
 if ( !class_exists( 'avia_sc_partner_logo' ) )
 {
@@ -13,6 +16,8 @@ if ( !class_exists( 'avia_sc_partner_logo' ) )
 			 */
 			function shortcode_insert_button()
 			{
+				$this->config['self_closing']	=	'no';
+				
 				$this->config['name']			= __('Partner/Logo Element', 'avia_framework' );
 				$this->config['tab']			= __('Media Elements', 'avia_framework' );
 				$this->config['icon']			= AviaBuilder::$path['imagesURL']."sc-partner.png";
@@ -331,6 +336,25 @@ if ( !class_exists( 'avia_sc_partner_logo' ) )
 				return $params;
 			}
 
+			
+			/**
+			 * Returns false by default.
+			 * Override in a child class if you need to change this behaviour.
+			 * 
+			 * @since 4.2.1
+			 * @param string $shortcode
+			 * @return boolean
+			 */
+			public function is_nested_self_closing( $shortcode )
+			{
+				if( in_array( $shortcode, $this->config['shortcode_nested'] ) )
+				{
+					return true;
+				}
+
+				return false;
+			}
+			
 
 			/**
 			 * Frontend Shortcode Handler
@@ -382,14 +406,22 @@ if ( !class_exists( 'avia_partner_logo' ) )
 	class avia_partner_logo
 	{
 		static  $slider = 0; 				//slider count for the current page
+		
 		protected $config;	 				//base config set on initialization
 		protected $slides;	 				//attachment posts for the current slider
-		protected $slide_count = 0;			//number of slides
+		protected $slide_count;				//number of slides
+		protected $id_array;				//unique array of slide id's
 
-		function __construct($config)
+		
+		/**
+		 * 
+		 * @param array $config
+		 */
+		public function __construct( $config )
 		{
-            		global $avia_config;
-            		$output = "";
+			$this->slides = array();
+			$this->slide_count = 0;
+			$this->id_array = array();
 
 			$this->config = array_merge(array(
                 'type'          => 'grid',
@@ -419,7 +451,24 @@ if ( !class_exists( 'avia_partner_logo' ) )
 
 			$this->set_slides($this->config['ids']);
 		}
+		
+		/**
+		 * 
+		 * @since 4.2.5
+		 * @added_by Günter
+		 */
+		public function __destruct() 
+		{
+			unset( $this->slides );
+			unset( $this->config );
+			unset( $this->id_array );
+		}
 
+		/**
+		 * 
+		 * @param string $ids
+		 * @return void
+		 */
 		public function set_slides($ids)
 		{
 			if(empty($ids)) return;
@@ -446,7 +495,7 @@ if ( !class_exists( 'avia_partner_logo' ) )
 
 			$this->slides 		= $new_slides;
 			$this->id_array 	= $new_ids;
-			$this->slide_count 	= count($this->id_array);
+			$this->slide_count 	= count( explode( ',', $ids ) );
 		}
 
 		public function set_size($size)
@@ -517,12 +566,14 @@ if ( !class_exists( 'avia_partner_logo' ) )
 
 				$output .= "<div class='avia-content-slider-inner'>";
 
-                foreach($this->id_array as $key => $id)
+                foreach( $this->subslides as $key => $slides )
                 {
+					$id = isset( $slides['attr']['id'] ) ? $slides['attr']['id'] : 0;
+					
                     if(isset($this->slides[$id]))
                     {
                         $slide = $this->slides[$id];
-                        $meta = array_merge( array('link' => '', 'link_target' => '', 'linktitle' => '', 'hover'=>'', 'custom_markup'=>''), $this->subslides[$key]['attr']);
+                        $meta = array_merge( array('link' => '', 'link_target' => '', 'linktitle' => '', 'hover'=>'', 'custom_markup'=>''), $slides['attr'] );
                         extract($meta);
 
                         $markup_url = avia_markup_helper(array('context' => 'image_url','echo'=>false, 'id'=>$slide->ID, 'custom_markup'=>$custom_markup));
