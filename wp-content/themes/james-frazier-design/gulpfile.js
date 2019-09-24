@@ -38,7 +38,7 @@ gulp.task('sass', function () {
 		.pipe(plumber(plumberErrorHandler))
 		.pipe(sass())
 		.pipe(autoprefixer({
-			browsers: ['last 2 versions', '> 5%', 'Firefox <= 20'],
+			overrideBrowserslist: ['last 2 versions', '> 5%', 'Firefox <= 20'],
 			cascade: false
 		}))
 		.pipe(gulp.dest('./'))
