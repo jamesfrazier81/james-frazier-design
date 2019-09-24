@@ -10,3 +10,4 @@ wp-config.php
 /wp-content/w3tc-config/
 /.htaccess
 /wp-content/themes/james-frazier-design/package-lock.json
+/wp-content/themes/james-frazier-design/package.json
